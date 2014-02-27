@@ -1,7 +1,7 @@
 {
   "name": "base16-railscasts",
   "theme": "syntax",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "private": false,
   "description": "base16 railscasts theme converted for atom",
   "repository": "https://github.com/jdan/atom-base16-railscasts",
