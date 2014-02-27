@@ -1,0 +1,12 @@
+{
+  "name": "railscasts",
+  "theme": "syntax",
+  "version": "0.0.1",
+  "private": false,
+  "description": "base16 railscasts theme converted for atom",
+  "repository": "https://github.com/jdan/atom-railscasts",
+  "license": "MIT",
+  "engines": {
+    "atom": ">0.50.0"
+  }
+}
