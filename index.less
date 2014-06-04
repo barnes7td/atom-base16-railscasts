@@ -1,3 +1,12 @@
+@orange: #cc7833;
+@red: #da4939;
+@blue: #6d9cbe;
+@purple: #b6b3eb;
+@green: #a5c261;
+@bluegreen: #2B9E75;
+@yellow: #ffc66d;
+@brown: #bc9458;
+
 .editor, .editor .gutter {
   background-color: #2b2b2b;
   color: #e6e1dc;
@@ -23,8 +32,12 @@
   color: #5a647e;
 }
 
+.punctuation.definition.constant{
+  color: #2B9E75;
+}
+
 .punctuation.definition.string, .punctuation.definition.variable, .punctuation.definition.string, .punctuation.definition.parameters, .punctuation.definition.string, .punctuation.definition.array {
-  color: #e6e1dc;
+  // color: #e6e1dc;
 }
 
 .none {
@@ -40,7 +53,7 @@
 }
 
 .variable {
-  color: #da4939;
+  color: @red;
 }
 
 .entity.name.function, .meta.require, .support.function.any-method {
@@ -63,7 +76,11 @@
   color: #519f50;
 }
 
-.string, .constant.other.symbol, .entity.other.inherited-class {
+.constant.other.symbol, .entity.other.inherited-class {
+  color: #2B9E75;
+}
+
+.string {
   color: #a5c261;
 }
 
@@ -80,19 +97,31 @@
 }
 
 .constant {
-  color: #cc7833;
+  color: @yellow;
 }
 
 .entity.name.tag {
-  color: #da4939;
+  color: @yellow;
+}
+
+.punctuation.definition.tag.haml{
+  color: @yellow;
+}
+
+.punctuation.definition.tag.html{
+  color: @yellow;
 }
 
 .entity.other.attribute-name {
-  color: #cc7833;
+  color: @blue;
 }
 
 .entity.other.attribute-name.id, .punctuation.definition.entity {
   color: #6d9cbe;
+}
+
+.punctuation.section.embedded.ruby{
+  color: @bluegreen;
 }
 
 .meta.selector {
@@ -177,4 +206,12 @@
 .invalid.illegal {
   color: #2b2b2b;
   background-color: #da4939;
+}
+
+.support.function {
+  color: @red;
+}
+
+.invisible-character {
+  color: #7A7A7A
 }
