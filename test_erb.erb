@@ -1,0 +1,36 @@
+<h2><%= link_to "#{@drawing.project.name} (#{@drawing.project.number})", project_path(@drawing.project_id) %></h2>
+<br>
+<h4><%= "Drawing # #{@drawing.number}" %></h4>
+<p><%= "(#{@drawing.footage} ft.)" %></p>
+<hr>
+<h4>Events</h4>
+<br>
+<table>
+  <tr>
+    <th>Status</th>
+    <th>Approval</th>
+    <th>Note</th>
+    <th>Footage</th>
+    <th>Date</th>
+  </tr>
+  <tr>
+    <td class="table-column"><%= @drawing.status %></td>
+    <td class="table-column"><%= @drawing.approval_status %></td>
+    <td class="table-column notes"><%= @drawing.notes %></td>
+    <td class="table-column "><%= "#{@drawing.footage} ft. " %></td>
+    <td class="table-column "><%= @drawing.created_at.strftime("%b %d, %Y") %></td>
+  </tr>
+  <% if @drawing.versions.length > 1 %>
+    <% @drawing.versions.reverse.each do |version| %>
+      <tr>
+        <% unless version.event == "create" %>
+          <td class="table-column"><%= version.reify.status %></td>
+          <td class="table-column"><%= version.reify.approval_status %></td>
+          <td class="table-column notes"><%= version.reify.notes %></td>
+          <td class="table-column "><%= "#{version.reify.footage} ft."%></td>
+          <td class="table-column "><%= version.reify.created_at.strftime("%b %d, %Y") %></td>
+        <% end %>
+      </tr>
+    <% end %>
+</table>
+<% end %>

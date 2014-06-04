@@ -1,0 +1,36 @@
+= page_header t('title_management_cases.title')
+
+.table-header= t('.table_header')
+.table-responsive
+  %table#title_management_cases.table.table-striped.table-bordered.dataTable
+
+    %thead
+      %tr
+        %th
+        %th= t 'views.vin'
+        - if @current_profile.internal?
+          %th= t 'views.barcode'
+          %th= t 'views.customer'
+        %th= t 'views.customer_title_id'
+        %th= t 'views.title_location'
+        %th= t 'views.title_state'
+        %th= t 'views.status'
+        - unless @current_profile.internal?
+          %th= t 'views.lot_location'
+    %tbody
+      - @title_management_cases.each do |title_management_case|
+        %tr
+          %td
+            .visible-md.visible-lg.hidden-sm.hidden-xs.action-buttons
+              = link_to title_management_case, :class => 'blue', 'data-toggle' => 'tooltip', :title => t('views.view') do
+                %i.icon-zoom-in.bigger-130
+          %td= link_to title_management_case.vin, title_management_case
+          - if @current_profile.internal?
+            %td= title_management_case.most_recent_folder.try(:barcode)
+            %td= title_management_case.customer_account_name
+          %td= title_management_case.customer_title_id
+          %td= title_management_case.title_location_text
+          %td= title_management_case.title_state
+          %td= title_management_case.status
+          - unless @current_profile.internal?
+            %td= title_management_case.lot_location
